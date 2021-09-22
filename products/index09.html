@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gakuda</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <script>
+        window.onload = function(){
+            var _height = window.innerHeight;
+            var _database_wrap = document.querySelectorAll(".database_wrap"); 
+            var paginglist = document.querySelector(".paginglist"); //페이징 리스트
+            _database_wrap.forEach(element => {
+                var _database_top = element.offsetTop;
+                var _database_tap_height = element.firstElementChild.offsetHeight;
+                var _database_body = element.querySelector('.type_body');
+                _database_body.style.height = _height-(paginglist.offsetHeight + _database_body.offsetTop + _database_top) + 'px';
+            });
+ 
+        }
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="lnb_wrap">
+            <div class="logo">
+                <h1>GAKUDA</h1>
+            </div>
+            <div class="subject">
+                <p>DASHBOARD</p>
+            </div>
+
+            <div class="language_wrap">
+                <div class="selected">
+                    <button type="button">Singapore</button>
+                </div>
+                <div class="select_lists">
+                    <ul>
+                        <li class="">
+                            <button type="button">Singapore</button>
+                        </li>
+                        <li>
+                            <button type="button">Malaysia</button>
+                        </li>
+                        <li>
+                            <button type="button">Philippinse</button>
+                        </li>
+                        <li>
+                            <button type="button" disabled="disabled">and more...</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lnb_contents">
+                <ul>
+                    <li class="on"><a href="javascript:void(0)">상품관리</a></li>
+                    <li><a href="javascript:void(0)">주문관리</a></li>
+                    <li><a href="javascript:void(0)">판매관리</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contents_wrap">
+            <div class="content_top">
+                <div class="db_btn_area">
+                    <button type="button">Check DB</button>
+                    <div class="db_tooltip">
+                        <ul>
+                            <li>All Products in DB
+                                <span>4,642</span>
+                            </li>
+                            <li>Newly Added in DB
+                                <span>942</span>
+                            </li>
+                        </ul>
+                        <p class="date">Updated Date : 2021 / 08 / 26  10:00 AM</p>
+                    </div>
+                </div>
+                <div class="search_area">
+                    <input type="search" placeholder="Search Brand / Product name.." name="" id="">
+                </div>
+            </div>
+            <div class="database_wrap">
+                <div class="tabs">
+                    <ul>
+                        <li>Now Published
+                            <span>465</span>
+                        </li>
+                        <li>Unpublished in 2 weeks
+                            <span>389</span>
+                        </li>
+                        <li class="on">Product Inf. Changed
+                            <span>39</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dblist_wrap">
+                    <div class="type_head">
+                        <table >
+                            <colgroup>
+                                <col width="75px" />
+                                <col width="200px" />
+                                <col width="200px" />
+                                <col/>
+                                <col/>
+                                <col/>
+                                <col/>
+                                <col/>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Brand Name</th>
+                                    <th>Product Name</th>
+                                    <th>직전 업로드 시점<br/>기준 자사몰 판매가</th>
+                                    <th>현 시점<br/>자사몰 판매가</th>
+                                    <th>가격 변화 %</th>
+                                    <th>쇼피 최저가</th>
+                                    <th>업데이트 판매가</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="type_select">
+                        <div class="selected on">
+                            <button type="button">Price Changed</button>
+                        </div>
+                        <div class="select_lists">
+                            <ul>
+                                <li class="">
+                                    <button type="button">Price Changed</button>
+                                </li>
+                                <li>
+                                    <button type="button">Stock Changed</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="depth_name">Processed</div>
+                    </div>
+                    <div class="type_body">
+                        <table class="">
+                            <colgroup>
+                                <col width="75px" />
+                                <col width="200px" />
+                                <col width="200px" />
+                                <col/>
+                                <col/>
+                                <col/>
+                                <col/>
+                                <col/>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td><img src="../images/Rectangle_2231.png" alt="ex"></td>
+                                    <td><span class="ellipsis no_bdr">Brand NameNameNameNameNameNameName 길어지면..</span></td>
+                                    <td><span>{{Product Name}}</span></td>
+                                    <td><span>43.26</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span class='point_down'>-10%</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span>30.26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="../images/Rectangle_2231.png" alt="ex"></td>
+                                    <td><span class="ellipsis no_bdr">말줄임으로 해주시면 될..</span></td>
+                                    <td><span>{{Product Name}}</span></td>
+                                    <td><span>43.26</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span class='point_up'>+10%</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span>30.26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="../images/Rectangle_2231.png" alt="ex"></td>
+                                    <td><span class="ellipsis no_bdr">{{Brand Name}}</span></td>
+                                    <td><span>{{Product Name}}</span></td>
+                                    <td><span>43.26</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span class='point_down'>-10%</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span>30.26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="../images/Rectangle_2231.png" alt="ex"></td>
+                                    <td><span class="ellipsis no_bdr">{{Brand Name}}</span></td>
+                                    <td><span>{{Product Name}}</span></td>
+                                    <td><span>43.26</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span class='point_up'>+10%</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span>30.26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="../images/Rectangle_2231.png" alt="ex"></td>
+                                    <td><span class="ellipsis no_bdr">{{Brand Name}}</span></td>
+                                    <td><span>{{Product Name}}</span></td>
+                                    <td><span>43.26</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span class='point_down'>-10%</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span>30.26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="../images/Rectangle_2231.png" alt="ex"></td>
+                                    <td><span class="ellipsis no_bdr">{{Brand Name}}</span></td>
+                                    <td><span>{{Product Name}}</span></td>
+                                    <td><span>43.26</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span class='point_up'>+10%</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span>30.26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="../images/Rectangle_2231.png" alt="ex"></td>
+                                    <td><span class="ellipsis no_bdr">{{Brand Name}}</span></td>
+                                    <td><span>{{Product Name}}</span></td>
+                                    <td><span>43.26</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span class='point_down'>-10%</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span>30.26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="../images/Rectangle_2231.png" alt="ex"></td>
+                                    <td><span class="ellipsis no_bdr">{{Brand Name}}</span></td>
+                                    <td><span>{{Product Name}}</span></td>
+                                    <td><span>43.26</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span class='point_up'>+10%</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span>30.26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="../images/Rectangle_2231.png" alt="ex"></td>
+                                    <td><span class="ellipsis no_bdr">{{Brand Name}}</span></td>
+                                    <td><span>{{Product Name}}</span></td>
+                                    <td><span>43.26</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span class='point_down'>-10%</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span>30.26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="../images/Rectangle_2231.png" alt="ex"></td>
+                                    <td><span class="ellipsis no_bdr">{{Brand Name}}</span></td>
+                                    <td><span>{{Product Name}}</span></td>
+                                    <td><span>43.26</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span class='point_up'>+10%</span></td>
+                                    <td><span>33.26</span></td>
+                                    <td><span>30.26</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="paginglist">
+                <button type="button"> &lt;PREVIOUS </button>
+                <ol>
+                    <li class="on"><a href="javascript:void(0)">1</a></li>
+                    <li><a href="javascript:void(0)">2</a></li>
+                    <li><a href="javascript:void(0)">3</a></li>
+                    <li><a href="javascript:void(0)">4</a></li>
+                    <li>···</li>
+                    <li><a href="javascript:void(0)">10</a></li>
+                </ol>
+                <button type="button"> NEXT&gt; </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
